@@ -1,2 +1,2 @@
 # oscarwash
-Pagina web del lavadero osacarwash
+Pagina web del lavadero oscarwash
