@@ -342,31 +342,45 @@
 
         <ul class="schedule-list">
           <li class="schedule-row" data-day="1">
-            <span class="schedule-day">Lunes</span>
-            <span class="schedule-time">8:30 a. m. a 5:00 p. m.</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Lunes</span>
+            </div>
+            <span class="schedule-time">8:30 a.m. a 5:00 p.m.</span>
           </li>
           <li class="schedule-row" data-day="2">
-            <span class="schedule-day">Martes</span>
-            <span class="schedule-time">8:30 a. m. a 5:00 p. m.</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Martes</span>
+            </div>
+            <span class="schedule-time">8:30 a.m. a 5:00 p.m.</span>
           </li>
           <li class="schedule-row" data-day="3">
-            <span class="schedule-day">Miércoles</span>
-            <span class="schedule-time">8:30 a. m. a 5:00 p. m.</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Miércoles</span>
+            </div>
+            <span class="schedule-time">8:30 a.m. a 5:00 p.m.</span>
           </li>
           <li class="schedule-row" data-day="4">
-            <span class="schedule-day">Jueves</span>
-            <span class="schedule-time">8:30 a. m. a 5:00 p. m.</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Jueves</span>
+            </div>
+            <span class="schedule-time">8:30 a.m. a 5:00 p.m.</span>
           </li>
           <li class="schedule-row" data-day="5">
-            <span class="schedule-day">Viernes</span>
-            <span class="schedule-time">8:30 a. m. a 5:00 p. m.</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Viernes</span>
+            </div>
+            <span class="schedule-time">8:30 a.m. a 5:00 p.m.</span>
           </li>
           <li class="schedule-row" data-day="6">
-            <span class="schedule-day">Sábado</span>
-            <span class="schedule-time">8:00 a. m. a 6:00 p. m.</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Sábado</span>
+            </div>
+            <span class="schedule-time">8:00 a.m. a 6:00 p.m.</span>
           </li>
           <li class="schedule-row" data-day="0">
-            <span class="schedule-day">Domingo</span>
+            <div class="schedule-day-wrap">
+              <span class="schedule-day">Domingo</span>
+            </div>
             <span class="badge-closed">Cerrado</span>
           </li>
         </ul>
@@ -491,12 +505,12 @@
       dayRows.forEach(row => {
         if (parseInt(row.dataset.day, 10) === currentDay) {
           row.classList.add('today');
-          const dayNameSpan = row.querySelector('.schedule-day');
-          if (dayNameSpan) {
+          const dayWrap = row.querySelector('.schedule-day-wrap') || row.querySelector('.schedule-day');
+          if (dayWrap && !dayWrap.querySelector('.today-pill')) {
             const pill = document.createElement('span');
             pill.className = 'today-pill';
             pill.textContent = 'Hoy';
-            dayNameSpan.appendChild(pill);
+            dayWrap.appendChild(pill);
           }
         }
       });
